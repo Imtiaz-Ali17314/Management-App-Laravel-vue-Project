@@ -168,7 +168,7 @@ export default {
 
         <!-- User Form -->
         <div class="card shadow-sm mb-4 ">
-            <div class="card-header bg-dark text-white">
+            <div class="card-header bg-primary text-white">
                 {{ editingUserId ? "Edit User" : "Add New User" }}
             </div>
             <div class="card-body card">
@@ -303,7 +303,7 @@ export default {
 
         <!-- Users Table -->
         <div class="card shadow-sm">
-            <div class="card-header bg-dark text-white">Users List</div>
+            <div class="card-header bg-primary text-white">Users List</div>
             <div class="card-body p-0">
                 <table
                     class="table table-striped table-hover mb-0"

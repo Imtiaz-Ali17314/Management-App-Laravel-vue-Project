@@ -101,18 +101,18 @@ export default {
 <template>
     <div class="container mt-4">
         <!-- Header -->
-        <div class="d-flex align-items-center justify-content-between mb-3">
+       <div class="d-flex align-items-center justify-content-between mb-3 text-white">
             <h4>
                 <i class="fab fa-google-drive text-success"></i> Google Drive
                 Browser
             </h4>
-            <a href="/auth/google" class="btn btn-danger">
+           <a href="/auth/google" class="btn btn-danger reconnect-btn">
                 <i class="fas fa-sync-alt"></i> Connect / Reconnect Google
             </a>
         </div>
 
         <!-- Search & Back -->
-        <div class="mb-3 d-flex">
+       <div class="mb-3 d-flex text-white">
             <button
                 v-if="folderStack.length > 0"
                 @click="goBack"
@@ -122,16 +122,16 @@ export default {
             </button>
             <input
                 v-model="q"
-                class="form-control"
+class="form-control inputs text-white"
                 placeholder="🔍 Search by name..."
             />
         </div>
 
         <!-- Files Grid -->
         <div class="row g-3">
-            <div v-for="(f, i) in filtered" :key="f.id" class="col-6 col-md-3">
+           <div v-for="(f, i) in filtered" :key="f.id" class="col-6 col-md-3">
                 <div
-                    class="card h-100 p-3 text-center shadow-sm border-0"
+class="card h-100 p-3 text-center shadow-sm border-0 "
                     style="cursor: pointer; border-radius: 10px"
                     @dblclick="openItem(f)"
                 >
@@ -152,11 +152,50 @@ export default {
     </div>
 </template>
 
-<!-- Font Awesome CDN -->
-<!-- Ye index.html me <head> ke andar add kare -->
-<!-- 
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-/>
--->
+<style scoped>
+.inputs {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.inputs::placeholder {
+    color: white;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    /* glass effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff;
+    transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon styling */
+.card i {
+    color: #38bdf8;
+    /* soft blue accent */
+}
+
+/* Text */
+.card .small {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.reconnect-btn {
+    transition: all 0.25s ease;
+}
+
+.reconnect-btn:hover {
+    transform: translateY(-1px) scale(1.02);
+}
+
+</style>
