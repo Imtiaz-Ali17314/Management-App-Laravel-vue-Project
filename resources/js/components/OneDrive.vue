@@ -36,15 +36,23 @@
 
             <!-- Right tools -->
             <div class="d-flex flex-wrap gap-2 align-items-center">
-                <div class="search-wrap">
-                   <input v-model="query" type="text" class="form-control" placeholder="🔍 Search files & folders…" />
+               <div>
+                    <input v-model="query" type="text" class="form-control" placeholder=" 🔍 Search files & folders…"
+                        style="width: 25rem;" />
                 </div>
 
-              <input type="file" multiple @change="uploadFiles" class="form-control d-inline-block"
-                    style="width: 260px" />
+              <div class="custom-file-upload" style="display: inline-block; position: relative;">
+                    <!-- Hidden file input -->
+                    <input type="file" id="fileInput" multiple @change="uploadFiles" style="display: none;" />
 
+                  <!-- Custom button -->
+                    <label for="fileInput" class="btn btn-primary"
+                        style="width: 150px; text-align: center; cursor: pointer;">
+                        <i class="fa-solid fa-upload"></i> Uploads
+                    </label>
+                </div>
                 <button class="btn btn-success" @click="createFolderPrompt">
-                    ➕ New Folder
+                   <i class="fa-solid fa-plus"></i> New Folder
                 </button>
                <a href="/auth/onedrive" class="btn btn-danger reconnect-btn">
                     <i class="fas fa-sync-alt"></i> Connect / Reconnect
@@ -77,7 +85,7 @@
 
                     <!-- Actions -->
                    <div class="file-actions mt-3 d-flex justify-content-center gap-2">
-                        <button class="btn btn-sm btn-outline-secondary" title="Open / Preview"
+                       <button class="btn btn-sm btn-outline-success" title="Open / Preview"
                             @click.stop="preview(item)">
                             <i class="bi bi-eye"></i>
                         </button>
@@ -397,8 +405,9 @@ export default {
 }
 
 .toolbar input::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.589);
 }
+
 /* Breadcrumbs */
 .breadcrumb {
     background: transparent;

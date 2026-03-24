@@ -360,7 +360,7 @@ export default {
             </div>
 
             <!-- Pagination -->
-            <div v-if="links.length" class="card-footer text-center">
+            <!-- <div v-if="links.length" class="card-footer text-center">
                 <ul class="pagination justify-content-center mb-0">
                     <li
                         v-for="link in links"
@@ -378,7 +378,18 @@ export default {
                         ></button>
                     </li>
                 </ul>
-            </div>
+            </div> -->
+
+        </div>
+
+        <!-- Pagination -->
+        <div v-if="links.length" class="d-flex justify-content-center align-items-center my-4">
+            <button v-for="(link, index) in links" :key="index" class="px-4 py-2 rounded border mx-1"
+                :disabled="!link.url" :class="{
+                    'btn btn-primary text-white': link.active,
+                    'btn btn-secondary text-white': !link.active && link.url,
+                    'btn btn-light text-gray': !link.url,
+                }" @click="link.url && getUsers(link.url)" v-html="link.label"></button>
         </div>
     </div>
 </template>
