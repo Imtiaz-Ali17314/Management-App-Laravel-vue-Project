@@ -46,6 +46,9 @@
                 <button class="btn btn-success" @click="createFolderPrompt">
                     ➕ New Folder
                 </button>
+               <a href="/auth/onedrive" class="btn btn-danger reconnect-btn">
+                    <i class="fas fa-sync-alt"></i> Connect / Reconnect
+                </a>
             </div>
         </div>
 
@@ -140,6 +143,7 @@ export default {
             previewUrl: "",
             toast: { show: false, type: "ok", message: "" },
             API_BASE: "http://localhost:8000/api/onedrive",
+            isConnected: false,
         };
     },
     computed: {
@@ -160,6 +164,10 @@ export default {
     },
     methods: {
         // ------------ UI helpers ------------
+        connectOneDrive() {
+            window.location.href = "/auth/onedrive";
+        },
+
         toastOk(msg) {
             this.toastShow(msg, "ok");
         },
@@ -375,6 +383,7 @@ export default {
     border-radius: 12px;
     box-shadow: none;
     padding: 10px 15px;
+    margin-bottom: 1rem;
 }
 
 .toolbar:hover {

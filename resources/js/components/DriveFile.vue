@@ -4,10 +4,10 @@ import axios from "axios";
 export default {
     data() {
         return {
-            files: [], // Current folder ke andar ka data
-            q: "", // Search text
-            loading: false, // Loader state
-            folderStack: [], // Navigation stack
+            files: [],
+            q: "",
+            loading: false,
+            folderStack: [],
         };
     },
     computed: {
@@ -107,34 +107,23 @@ export default {
                 Browser
             </h4>
            <a href="/auth/google" class="btn btn-danger reconnect-btn">
-                <i class="fas fa-sync-alt"></i> Connect / Reconnect Google
+               <i class="fas fa-sync-alt"></i> Connect / Reconnect
             </a>
         </div>
 
         <!-- Search & Back -->
        <div class="mb-3 d-flex text-white">
-            <button
-                v-if="folderStack.length > 0"
-                @click="goBack"
-                class="btn btn-secondary btn-sm me-2"
-            >
+           <button v-if="folderStack.length > 0" @click="goBack" class="btn btn-secondary btn-sm me-2">
                 <i class="fas fa-arrow-left"></i> Back
             </button>
-            <input
-                v-model="q"
-class="form-control inputs text-white"
-                placeholder="🔍 Search by name..."
-            />
+           <input v-model="q" class="form-control inputs text-white" placeholder="🔍 Search by name..." />
         </div>
 
         <!-- Files Grid -->
         <div class="row g-3">
            <div v-for="(f, i) in filtered" :key="f.id" class="col-6 col-md-3">
-                <div
-class="card h-100 p-3 text-center shadow-sm border-0 "
-                    style="cursor: pointer; border-radius: 10px"
-                    @dblclick="openItem(f)"
-                >
+               <div class="card h-100 p-3 text-center shadow-sm border-0 " style="cursor: pointer; border-radius: 10px"
+                    @dblclick="openItem(f)">
                     <!-- Icon -->
                     <i :class="getFileIcon(f)" style="font-size: 40px"></i>
                     <!-- Name -->
@@ -197,5 +186,4 @@ class="card h-100 p-3 text-center shadow-sm border-0 "
 .reconnect-btn:hover {
     transform: translateY(-1px) scale(1.02);
 }
-
 </style>

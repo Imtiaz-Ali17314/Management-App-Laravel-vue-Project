@@ -22,12 +22,13 @@ class OneDriveController extends Controller
     private function getUserId(): int
     {
         $rec = OneDrive::first();
-        return $rec ? $rec->user_id : 1;
+        return $rec ? $rec->user_id : 1; 
     }
 
     /** OAuth callback: tokens save */
     public function callback(Request $request)
     {
+
         if (!$request->has('code')) {
             return response()->json(['error' => 'Authorization code missing'], 400);
         }
@@ -58,7 +59,7 @@ class OneDriveController extends Controller
             ]
         );
 
-        return response()->json(['message' => 'OneDrive connected successfully']);
+          return redirect('http://127.0.0.1:8000/odrive');
     }
 
     /** List Files/Folders */

@@ -20,7 +20,6 @@ Route::apiResource('/users' , UserController::class);
 
 // --- OneDrive Routes ---
 Route::prefix('onedrive')->group(function () {
-    Route::get('callback', [OneDriveController::class, 'callback']);          // OAuth callback
     Route::get('files', [OneDriveController::class, 'listFiles']);            // List files/folders ?path=/
     Route::post('upload', [OneDriveController::class, 'uploadFile']);         // Upload file
     Route::post('folder', [OneDriveController::class, 'createFolder']);       // Create folder

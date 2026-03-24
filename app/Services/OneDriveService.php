@@ -164,7 +164,7 @@ class OneDriveService
         return $response->body();
     }
 
-    /** delete item */
+    /** delete item */ 
     public function deleteItem($userId, $itemId)
     {
         $accessToken = $this->refreshAccessToken($userId);
