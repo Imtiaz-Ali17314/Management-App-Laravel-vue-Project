@@ -1,19 +1,9 @@
 <template>
     <div class="explorer-container">
         <!-- Header -->
-        <div
-            class="explorer-header text-center text-white py-4 animate-fade-in"
-        >
-            <h2
-                class="fw-bold m-0 d-flex align-items-center justify-content-center"
-            >
-                <img
-                    src="/storage/image/onedrvie.png"
-                    alt="OneDrive"
-                    width="50"
-                    height="40"
-                    class="me-2"
-                />
+       <div class="explorer-header text-center text-white py-4 animate-fade-in">
+            <h2 class="fw-bold m-0 d-flex align-items-center justify-content-center">
+                <img src="/storage/image/onedrvie.png" alt="OneDrive" width="50" height="40" class="me-2" />
                 My OneDrive
             </h2>
 
@@ -22,37 +12,20 @@
 
         <!-- Toolbar -->
         <div
-            class="toolbar d-flex flex-wrap gap-2 justify-content-between align-items-center p-3 bg-white shadow rounded mb-3 animate-slide-up"
-        >
+           class="toolbar d-flex flex-wrap gap-2 justify-content-between align-items-center p-3 text-white shadow animate-slide-up">
             <div class="d-flex gap-2 align-items-center">
                 <button class="btn btn-primary" @click="goHome">🏠 Home</button>
 
                 <!-- Breadcrumbs -->
-                <nav aria-label="breadcrumb" class="ms-2">
+               <nav aria-label="breadcrumb text-white" class="ms-2">
                     <ol class="breadcrumb mb-0">
-                        <li
-                            class="breadcrumb-item"
-                            :class="{ active: pathSegments.length === 0 }"
-                        >
-                            <a
-                                href="#"
-                                @click.prevent="goHome"
-                                v-if="pathSegments.length"
-                                >root</a
-                            >
+                       <li class="breadcrumb-item" :class="{ active: pathSegments.length === 0 }">
+                            <a href="#" @click.prevent="goHome" v-if="pathSegments.length">root</a>
                             <span v-else>root</span>
                         </li>
-                        <li
-                            v-for="(seg, idx) in pathSegments"
-                            :key="idx"
-                            class="breadcrumb-item"
-                            :class="{ active: idx === pathSegments.length - 1 }"
-                        >
-                            <a
-                                v-if="idx !== pathSegments.length - 1"
-                                href="#"
-                                @click.prevent="goToCrumb(idx)"
-                            >
+                       <li v-for="(seg, idx) in pathSegments" :key="idx" class="breadcrumb-item"
+                            :class="{ active: idx === pathSegments.length - 1 }">
+                            <a v-if="idx !== pathSegments.length - 1" href="#" @click.prevent="goToCrumb(idx)">
                                 {{ seg }}
                             </a>
                             <span v-else>{{ seg }}</span>
@@ -64,22 +37,11 @@
             <!-- Right tools -->
             <div class="d-flex flex-wrap gap-2 align-items-center">
                 <div class="search-wrap">
-                    <i class="bi bi-search me-2"></i>
-                    <input
-                        v-model="query"
-                        type="text"
-                        class="form-control"
-                        placeholder="Search files & folders…"
-                    />
+                   <input v-model="query" type="text" class="form-control" placeholder="🔍 Search files & folders…" />
                 </div>
 
-                <input
-                    type="file"
-                    multiple
-                    @change="uploadFiles"
-                    class="form-control d-inline-block"
-                    style="width: 260px"
-                />
+              <input type="file" multiple @change="uploadFiles" class="form-control d-inline-block"
+                    style="width: 260px" />
 
                 <button class="btn btn-success" @click="createFolderPrompt">
                     ➕ New Folder
@@ -88,67 +50,38 @@
         </div>
 
         <!-- Empty / Error states -->
-        <div
-            v-if="!loading && filteredFiles.length === 0"
-            class="empty-state text-white-50 text-center py-5"
-        >
+       <div v-if="!loading && filteredFiles.length === 0" class="empty-state text-white-50 text-center py-5">
             <i class="bi bi-inboxes fs-1 d-block mb-2"></i>
             <div class="fs-5">No items found here.</div>
         </div>
 
         <!-- Grid -->
         <div class="row g-3">
-            <div
-                v-for="item in filteredFiles"
-                :key="item.id"
-                class="col-12 col-sm-6 col-md-4 col-lg-3"
-            >
-                <div
-                    class="file-card shadow-sm p-3 rounded text-center animate-pop"
-                    @dblclick="openItem(item)"
-                >
+           <div v-for="item in filteredFiles" :key="item.id" class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="file-card shadow-sm p-3 rounded text-center animate-pop" @dblclick="openItem(item)">
                     <div class="file-icon-wrap mb-2">
                         <!-- ✅ Hamesha icon hi dikhana hai -->
                         <i :class="fileIcon(item)" class="fs-1"></i>
                     </div>
 
-                    <div
-                        class="file-name text-truncate fw-semibold"
-                        :title="item.name"
-                    >
+                  <div class="file-name text-truncate fw-semibold" :title="item.name">
                         {{ item.name }}
                     </div>
 
-                    <div
-                        class="text-muted small"
-                        v-if="!item.folder && humanSize(item.size)"
-                    >
+                  <div class="text-muted small" v-if="!item.folder && humanSize(item.size)">
                         {{ humanSize(item.size) }}
                     </div>
 
                     <!-- Actions -->
-                    <div
-                        class="file-actions mt-3 d-flex justify-content-center gap-2"
-                    >
-                        <button
-                            class="btn btn-sm btn-outline-secondary"
-                            title="Open / Preview"
-                            @click.stop="preview(item)"
-                        >
+                   <div class="file-actions mt-3 d-flex justify-content-center gap-2">
+                        <button class="btn btn-sm btn-outline-secondary" title="Open / Preview"
+                            @click.stop="preview(item)">
                             <i class="bi bi-eye"></i>
                         </button>
-                        <button
-                            class="btn btn-sm btn-outline-primary"
-                            title="Download"
-                            @click.stop="download(item)"
-                        >
+                       <button class="btn btn-sm btn-outline-primary" title="Download" @click.stop="download(item)">
                             <i class="bi bi-arrow-down-circle"></i>
                         </button>
-                        <button
-                            class="btn btn-sm btn-outline-danger"
-                            title="Delete"
-                            @click.stop="deleteItem(item)"
-                        >
+                       <button class="btn btn-sm btn-outline-danger" title="Delete" @click.stop="deleteItem(item)">
                             <i class="bi bi-trash"></i>
                         </button>
                     </div>
@@ -170,32 +103,18 @@
         </div>
 
         <!-- Preview Modal -->
-        <div
-            v-if="showPreview"
-            class="preview-backdrop"
-            @click.self="closePreview"
-        >
+       <div v-if="showPreview" class="preview-backdrop" @click.self="closePreview">
             <div class="preview-modal">
-                <div
-                    class="d-flex justify-content-between align-items-center mb-2"
-                >
+               <div class="d-flex justify-content-between align-items-center mb-2">
                     <div class="fw-semibold text-truncate">
                         {{ previewItem?.name }}
                     </div>
-                    <button
-                        class="btn btn-sm btn-outline-secondary"
-                        @click="closePreview"
-                    >
+                   <button class="btn btn-sm btn-outline-secondary" @click="closePreview">
                         ✕
                     </button>
                 </div>
                 <!-- Use webUrl for embedded preview (Office online / image render) -->
-                <iframe
-                    v-if="previewUrl"
-                    :src="previewUrl"
-                    class="preview-frame"
-                    referrerpolicy="no-referrer"
-                ></iframe>
+               <iframe v-if="previewUrl" :src="previewUrl" class="preview-frame" referrerpolicy="no-referrer"></iframe>
                 <div v-else class="text-center py-4 text-muted">
                     Preview not available. Try Download.
                 </div>
@@ -432,11 +351,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* Page bg */
 .explorer-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #5b7cfa, #7a49c7);
     padding: 20px;
 }
 
@@ -446,39 +364,67 @@ export default {
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    margin-bottom: 1rem;
 }
 
 /* Toolbar */
-.toolbar .search-wrap {
-    display: flex;
-    align-items: center;
-    background: #f6f7fb;
-    border: 1px solid #eef0f6;
-    padding: 6px 10px;
-    border-radius: 10px;
+.toolbar {
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    box-shadow: none;
+    padding: 10px 15px;
 }
-.toolbar .search-wrap input {
-    border: none;
-    outline: none;
+
+.toolbar:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.toolbar input {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.toolbar input::placeholder {
+    color: white;
+}
+/* Breadcrumbs */
+.breadcrumb {
     background: transparent;
-    width: 220px;
+}
+
+.breadcrumb-item a {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* File cards */
 .file-card {
-    background: white;
     border-radius: 14px;
     transition: transform 0.18s ease, box-shadow 0.18s ease;
     cursor: pointer;
     border: 1px solid #f1f3f7;
 }
+
 .file-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 28px rgba(22, 34, 68, 0.12);
 }
+
 .file-icon-wrap i {
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
 }
+
 .file-name {
     font-size: 14px;
     white-space: nowrap;
@@ -505,6 +451,7 @@ export default {
     right: 16px;
     z-index: 60;
 }
+
 .toast-inner {
     padding: 10px 14px;
     border-radius: 10px;
@@ -512,9 +459,11 @@ export default {
     font-weight: 600;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
 }
+
 .toast-inner.ok {
     background: #22bb66;
 }
+
 .toast-inner.err {
     background: #e05666;
 }
@@ -529,6 +478,7 @@ export default {
     z-index: 70;
     padding: 24px;
 }
+
 .preview-modal {
     width: min(1100px, 96vw);
     height: min(80vh, 900px);
@@ -539,6 +489,7 @@ export default {
     display: flex;
     flex-direction: column;
 }
+
 .preview-frame {
     flex: 1;
     width: 100%;
@@ -558,37 +509,45 @@ export default {
 .animate-fade-in {
     animation: fadeIn 0.5s ease both;
 }
+
 .animate-slide-up {
     animation: slideUp 0.4s ease both;
 }
+
 .animate-pop {
     animation: pop 0.25s ease both;
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(8px);
     }
+
     to {
         opacity: 1;
         transform: none;
     }
 }
+
 @keyframes slideUp {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: none;
     }
 }
+
 @keyframes pop {
     from {
         opacity: 0;
         transform: scale(0.98);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
