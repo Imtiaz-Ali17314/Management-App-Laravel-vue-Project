@@ -8,6 +8,12 @@
   <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
 </p>
 
+<p align="center">
+  <img src="public/images/screenshot-home.png" alt="LaraVue Portal - Home Page Preview" width="100%">
+</p>
+
+---
+
 **LaraVue Portal** is a full-stack content and profile management workspace built with **Laravel 12** on the backend and **Vue.js 3** on the frontend. This project demonstrates practical, real-world application of the Laravel + Vue ecosystem — covering RESTful APIs, Eloquent ORM, file storage, Vue Router, reactive components, Axios-based CRUD operations, and frontend/backend integration.
 
 This is my first dedicated Laravel + Vue full-stack project after mastering Vue.js independently, serving as a crucial step up from frontend-only development toward building complete web applications.
