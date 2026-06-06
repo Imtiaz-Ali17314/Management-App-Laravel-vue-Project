@@ -38,12 +38,12 @@ export default {
                     <li class="nav-item">
                        <router-link class="nav-link" to="/uploads">Users</router-link>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                        <router-link class="nav-link" to="/gdrive">GoogleDrive</router-link>
                     </li>
                     <li class="nav-item">
                        <router-link class="nav-link" to="/odrive">OneDrive</router-link>
-                    </li>
+                    </li> -->
                     <!-- <li class="nav-item">
                         <router-link class="nav-link" to="/about"
                             >About</router-link

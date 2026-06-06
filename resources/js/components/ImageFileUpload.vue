@@ -359,27 +359,6 @@ export default {
                 <p v-else class="text-center py-4">No users found.</p>
             </div>
 
-            <!-- Pagination -->
-            <!-- <div v-if="links.length" class="card-footer text-center">
-                <ul class="pagination justify-content-center mb-0">
-                    <li
-                        v-for="link in links"
-                        :key="link.url"
-                        :class="[
-                            'page-item',
-                            { active: link.active, disabled: !link.url },
-                        ]"
-                    >
-                        <button
-                            class="page-link"
-                            v-html="link.label"
-                            @click="link.url && getUsers(link.url)"
-                            :disabled="loading || !link.url"
-                        ></button>
-                    </li>
-                </ul>
-            </div> -->
-
         </div>
 
         <!-- Pagination -->

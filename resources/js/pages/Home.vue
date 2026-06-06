@@ -22,26 +22,6 @@ export default {
              <i class="fa-solid fa-users icon"></i>
             <h3>User Management</h3>
         </div>
-
-        <div class="card" @click="goTo('/gdrive')">
-            <!-- <div class="icon">☁️</div> -->
-            <!-- <i class="fab fa-google-drive text-success icon"></i> -->
-             <i class="fa-brands fa-google-drive icon"></i>
-            <h3>Google Drive</h3>
-        </div>
-
-        <div class="card" @click="goTo('/odrive')">
-            <!-- <div class="icon">📁</div> -->
-               <img
-                    src="/storage/image/onedrvie.png"
-                    alt="OneDrive"
-                    width="60"
-                    height="50"
-                    class="me-2 icon"
-                />
-            <h3>One Drive</h3>
-        </div>
-
     </div>
 </template>
 
