@@ -17,12 +17,3 @@ Route::get('/test', function (Request $request){
 // --- Posts & Users ---
 Route::apiResource('/posts' , PostController::class);
 Route::apiResource('/users' , UserController::class);
-
-// --- OneDrive Routes ---
-// Route::prefix('onedrive')->group(function () {
-//     Route::get('files', [OneDriveController::class, 'listFiles']);            // List files/folders ?path=/
-//     Route::post('upload', [OneDriveController::class, 'uploadFile']);         // Upload file
-//     Route::post('folder', [OneDriveController::class, 'createFolder']);       // Create folder
-//     Route::get('download/{itemId}', [OneDriveController::class, 'downloadFile']); // Download file
-//     Route::delete('delete/{itemId}', [OneDriveController::class, 'deleteItem']);  // Delete file/folder
-// });
