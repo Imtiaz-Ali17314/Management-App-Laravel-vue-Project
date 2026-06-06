@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-use function Pest\Laravel\delete;
-
 class PostController extends Controller
 {
     /**

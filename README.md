@@ -1,61 +1,202 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🗄️ LaraVue Portal
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://img.shields.io/badge/Laravel-12.x-ff2d20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 12">
+  <img src="https://img.shields.io/badge/Vue.js-3.x-4fc08d?style=for-the-badge&logo=vue.js&logoColor=white" alt="Vue 3">
+  <img src="https://img.shields.io/badge/Bootstrap-5.x-7952b3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap 5">
+  <img src="https://img.shields.io/badge/MySQL-Supported-00758f?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
 </p>
 
-## About Laravel
+**LaraVue Portal** is a full-stack content and profile management workspace built with **Laravel 12** on the backend and **Vue.js 3** on the frontend. This project demonstrates practical, real-world application of the Laravel + Vue ecosystem — covering RESTful APIs, Eloquent ORM, file storage, Vue Router, reactive components, Axios-based CRUD operations, and frontend/backend integration.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This is my first dedicated Laravel + Vue full-stack project after mastering Vue.js independently, serving as a crucial step up from frontend-only development toward building complete web applications.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+🔗 **Repository:** [https://github.com/Imtiaz-Ali17314/File-Manager-Laravel-vue-Project](https://github.com/Imtiaz-Ali17314/File-Manager-Laravel-vue-Project)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🗺️ Journey Milestone & Context
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+> **"Knowing a frontend framework is powerful. Connecting it to a real backend is transformative."**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+After completing my **Learn-Vue-Js-Practice-App** — which covered Vue fundamentals with a Laravel backend — I built **LaraVue Portal** as a more structured, purposeful full-stack application. Where the learning project was sandbox-focused, this one is feature-focused, demonstrating clean API design, multi-file form handling, image storage, and a full CRUD workflow for two different data domains.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+This project marks my transition into **Professional Full-Stack development**, combining both ends of the application stack under a single cohesive Laravel project.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ✨ Core Features
 
-### Premium Partners
+### 📝 Post Management (Full CRUD)
+- Create, read, update, and delete posts through a **dedicated RESTful API**.
+- Two-column UI: sticky form panel on the left, live post feed on the right.
+- Paginated post listing with smooth navigation.
+- Edit mode automatically populates the form and scrolls to the top.
+- Inline loader overlays during API requests to prevent duplicate submissions.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 👤 User Profile Management (Full CRUD + Image Upload)
+- Create and manage user profiles storing **name, email, city, and profile image**.
+- Profile image uploads handled via `multipart/form-data` sent to a Laravel storage endpoint.
+- Uploaded images are stored under `public/storage/image/` using Laravel's **local disk** with symbolic link.
+- Old images are **automatically deleted** from disk when a user updates their profile picture.
+- Server-side **validation** (422 responses) is caught and displayed in the form as inline field errors.
+- Profiles are rendered as a **card grid** with gradient-bordered circular avatars.
+- Graceful image fallback via `ui-avatars.com` if the storage image is missing.
 
-## Contributing
+### 🎨 Premium UI Design
+- Dark glassmorphism design with `backdrop-filter: blur()` panels throughout.
+- Deep space gradient background with subtle radial color blobs.
+- **Outfit** typeface from Google Fonts for a modern, premium aesthetic.
+- Smooth hover animations, glowing buttons, and active link indicators.
+- Sticky glassmorphic navbar with gradient brand title.
+- Custom scrollbars, animated page loaders, and responsive card layouts.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📂 Project Architecture
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+File-Manager-Laravel-vue-Project/
+│
+├── app/Http/Controllers/
+│   ├── PostController.php      # REST API for Posts (CRUD)
+│   └── UserController.php      # REST API for Users (CRUD + Image Upload/Delete)
+│
+├── resources/js/
+│   ├── App.vue                 # Root component with router-view & page transitions
+│   ├── router.js               # Vue Router route definitions
+│   ├── app.js                  # App entry point (Vue + Router mount)
+│   ├── pages/
+│   │   ├── Home.vue            # Dashboard with hero section & module cards
+│   │   └── Post.vue            # Post Management page (two-column CRUD layout)
+│   └── components/
+│       ├── NavBar.vue          # Sticky glassmorphic navigation bar
+│       └── ImageFileUpload.vue # User Profile Management with card grid
+│
+├── resources/sass/app.scss     # Global SCSS: dark theme, glassmorphism, buttons, scrollbars
+├── resources/views/welcome.blade.php  # SPA entry blade file
+├── routes/api.php              # API routes: /posts, /users
+├── routes/web.php              # SPA catch-all route → serves Vue
+├── database/migrations/        # Users and Posts table migrations
+└── webpack.mix.js              # Laravel Mix: Vue + SASS compilation
+```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🛠️ Technology Stack
 
-## License
+| Layer | Technology | Purpose |
+|:--|:--|:--|
+| **Backend Framework** | Laravel 12 | Application logic, routing, validation |
+| **API Style** | RESTful API (`apiResource`) | CRUD endpoint definitions |
+| **ORM** | Eloquent ORM | Database models & queries |
+| **File Storage** | Laravel `Storage::disk('public')` | Profile image upload & deletion |
+| **Frontend Framework** | Vue.js 3 (Options API) | Reactive SPA components |
+| **HTTP Client** | Axios | Frontend-to-API communication |
+| **Routing** | Vue Router 4 | Client-side page navigation |
+| **CSS Framework** | Bootstrap 5 + Custom SCSS | Grid, layout, utility classes |
+| **Typography** | Outfit (Google Fonts) | Premium font across the app |
+| **Icons** | Font Awesome 6 + Bootstrap Icons | UI icons throughout the app |
+| **Database** | MySQL | Persistent storage for users and posts |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## ⚙️ Setup & Installation
+
+### Prerequisites
+Ensure the following are installed on your system:
+- **PHP** (v8.2+)
+- **Composer**
+- **Node.js** (v16+)
+- **MySQL**
+- **Git**
+
+---
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Imtiaz-Ali17314/File-Manager-Laravel-vue-Project.git
+cd File-Manager-Laravel-vue-Project
+```
+
+---
+
+### 2. Install PHP Dependencies
+
+```bash
+composer install
+```
+
+---
+
+### 3. Configure Environment
+
+```bash
+copy .env.example .env
+php artisan key:generate
+```
+
+Edit the `.env` file and configure your database credentials:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_vue
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+---
+
+### 4. Run Database Migrations
+
+```bash
+php artisan migrate
+```
+
+---
+
+### 5. Create Storage Symbolic Link
+
+```bash
+php artisan storage:link
+```
+
+This allows uploaded profile images to be publicly accessible via `public/storage/`.
+
+---
+
+### 6. Install Node Dependencies & Compile Assets
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+### 7. Start the Laravel Development Server
+
+```bash
+php artisan serve
+```
+
+Visit `http://127.0.0.1:8000` in your browser to access **LaraVue Portal**.
+
+---
+
+## 🔑 Key Technical Decisions
+
+- **Dynamic API Origin:** All frontend API calls use `window.location.origin` instead of hardcoded `localhost` URLs, making the app portable across different environments.
+- **Image Fallback Strategy:** When a profile image fails to load (e.g., after a server reset), the avatar gracefully falls back to a generated avatar from [ui-avatars.com](https://ui-avatars.com).
+- **Sticky Form Panel:** The user profile form panel stays fixed in view (`position: sticky`) as you scroll through the profile card grid below, keeping the creation flow accessible at all times.
+- **Responsive Grid:** The profile card grid uses `auto-fill` with `minmax()` columns, adapting naturally from 1 to 3+ columns depending on screen width.
+
+---
+
+## 📄 License
+
+This project is open-source software licensed under the [MIT License](https://opensource.org/licenses/MIT).

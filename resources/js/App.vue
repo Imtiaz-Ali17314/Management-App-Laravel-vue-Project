@@ -12,6 +12,8 @@ export default {
 #router-view {
     overflow-x: hidden;
     padding: 0;
+    min-height: calc(100vh - 64px);
+    background: transparent;
 }
 
 .effect-enter-active,

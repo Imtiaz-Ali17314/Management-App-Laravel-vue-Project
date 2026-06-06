@@ -1,8 +1,176 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+// Custom Premium Styles (LaraVue Portal)
+body {
+    background-color: #0b111e !important;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%) !important;
+    background-attachment: fixed !important;
+    color: #f1f5f9 !important;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+// Glassmorphism System
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+    color: #f8fafc;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-header {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
+    padding: 1.2rem 1.5rem !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.5px !important;
+    color: #ffffff !important;
+}
+
+.glass-input {
+    background: rgba(15, 23, 42, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #f8fafc !important;
+    border-radius: 10px !important;
+    padding: 0.65rem 1rem !important;
+    transition: all 0.25s ease !important;
+
+    &:focus {
+        background: rgba(15, 23, 42, 0.6) !important;
+        border-color: #6366f1 !important;
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.25) !important;
+        outline: none !important;
+    }
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.4) !important;
+    }
+
+    &:disabled {
+        background: rgba(15, 23, 42, 0.8) !important;
+        color: rgba(255, 255, 255, 0.3) !important;
+        border-color: rgba(255, 255, 255, 0.05) !important;
+    }
+}
+
+// Glowing Buttons
+.btn-glass-primary {
+    background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 500 !important;
+    border-radius: 10px !important;
+    padding: 0.65rem 1.25rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.4) !important;
+
+    &:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.6) !important;
+        background: linear-gradient(135deg, #4f46e5, #4338ca) !important;
+    }
+
+    &:active {
+        transform: translateY(0) !important;
+    }
+}
+
+.btn-glass-secondary {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #f1f5f9 !important;
+    font-weight: 500 !important;
+    border-radius: 10px !important;
+    padding: 0.65rem 1.25rem !important;
+    transition: all 0.3s ease !important;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
+        transform: translateY(-2px) !important;
+    }
+    
+    &:active {
+        transform: translateY(0) !important;
+    }
+}
+
+.btn-glass-danger {
+    background: linear-gradient(135deg, #f43f5e, #e11d48) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 500 !important;
+    border-radius: 10px !important;
+    padding: 0.65rem 1.25rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 14px 0 rgba(244, 63, 94, 0.4) !important;
+
+    &:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px 0 rgba(244, 63, 94, 0.6) !important;
+        background: linear-gradient(135deg, #e11d48, #be123c) !important;
+    }
+
+    &:active {
+        transform: translateY(0) !important;
+    }
+}
+
+.btn-glass-warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 500 !important;
+    border-radius: 10px !important;
+    padding: 0.65rem 1.25rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.4) !important;
+
+    &:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.6) !important;
+        background: linear-gradient(135deg, #d97706, #b45309) !important;
+    }
+
+    &:active {
+        transform: translateY(0) !important;
+    }
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
