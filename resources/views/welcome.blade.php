@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LaraVue Portal - Premium Full-Stack Workspace</title>
+    <title>LaraVue Portal</title>
+
+        <!-- 👇 BROWSER TAB LOGO / FAVICON 👇 -->
+    <link rel="icon" href="{{ asset('images/icon.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('images/icon.png') }}" type="image/png">
+    
+    <!-- For mobile devices (Apple, Android) -->
+    <link rel="apple-touch-icon" href="{{ asset('images/icon.png') }}">
+    <link rel="icon" sizes="192x192" href="{{ asset('images/icon.png') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
